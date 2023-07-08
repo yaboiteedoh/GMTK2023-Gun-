@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dg0n1c2tpuvms"]
+[gd_scene load_steps=12 format=3 uid="uid://dg0n1c2tpuvms"]
 
 [ext_resource type="PackedScene" uid="uid://ccgt7cs60865p" path="res://gun.tscn" id="1_sgjly"]
 [ext_resource type="Script" path="res://level.gd" id="1_sv2tl"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cenvnrt1p4eco" path="res://flying_enemy.tscn" id="6_x8tpr"]
 [ext_resource type="Texture2D" uid="uid://cr67pbagmjvei" path="res://Art/walls_light.png" id="7_8vn1y"]
 [ext_resource type="PackedScene" uid="uid://bspic37rnvsif" path="res://crawling_enemy.tscn" id="7_y6jxb"]
+[ext_resource type="AudioStream" uid="uid://di12qpxu8thhx" path="res://Sounds/idle_theme.wav" id="8_bl6mx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_med6d"]
 shader = ExtResource("3_wes4q")
@@ -218,10 +219,7 @@ sources/0 = SubResource("TileSetAtlasSource_smg5c")
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_sv2tl")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
+[node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -230,7 +228,7 @@ grow_vertical = 2
 color = Color(0.109804, 0.231373, 0.184314, 1)
 
 [node name="Gun" parent="." instance=ExtResource("1_sgjly")]
-position = Vector2(491, 287)
+position = Vector2(575, 358)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Gun"]
@@ -261,3 +259,6 @@ position = Vector2(163, 377)
 
 [node name="CrawlingEnemy" parent="Enemies" instance=ExtResource("7_y6jxb")]
 position = Vector2(337, 561)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_bl6mx")
